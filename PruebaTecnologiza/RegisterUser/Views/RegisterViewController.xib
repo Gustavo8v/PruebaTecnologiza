@@ -80,6 +80,9 @@
                                     <buttonConfiguration key="configuration" style="plain" title="Guardar">
                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </buttonConfiguration>
+                                    <connections>
+                                        <action selector="onClickRegisterUser:" destination="-1" eventType="touchUpInside" id="5HY-b2-Y5i"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellidos" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ewr-0k-6Yb">
                                     <rect key="frame" x="41.5" y="106" width="331" height="66.5"/>

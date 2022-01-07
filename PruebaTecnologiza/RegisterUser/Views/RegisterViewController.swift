@@ -10,6 +10,8 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     var imageSelected: UIImage?
+    var dataImage: Data?
+    var presenter = RegisterPresenter()
     
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -47,6 +49,16 @@ class RegisterViewController: UIViewController {
         picker.modalPresentationStyle = .formSheet
         present(picker, animated: true)
     }
+    
+    @IBAction func onClickRegisterUser(_ sender: Any) {
+        presenter.saveUser(name: name.text ?? "",
+                           lastName: lastName.text ?? "",
+                           cellPhone: cellPhone.text ?? "",
+                           email: email.text ?? "",
+                           coordinates: "prueba",
+                           image: dataImage ?? Data())
+    }
+    
 }
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -58,6 +70,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         self.imageSelected = image
+        dataImage = image.pngData()
         imageUser.image = self.imageSelected
     }
 }
