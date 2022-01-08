@@ -19,6 +19,11 @@
 		725ACB05278806AF0068BDCF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 725ACB04278806AF0068BDCF /* RealmSwift */; };
 		725ACB08278807220068BDCF /* RegisterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725ACB07278807220068BDCF /* RegisterRealm.swift */; };
 		725ACB0C2788089D0068BDCF /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725ACB0B2788089D0068BDCF /* RegisterPresenter.swift */; };
+		725E6BF1278906E900B25957 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E6BF0278906E900B25957 /* UserListPresenter.swift */; };
+		725E6BF52789087200B25957 /* DataUsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E6BF32789087200B25957 /* DataUsersTableViewCell.swift */; };
+		725E6BF62789087200B25957 /* DataUsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725E6BF42789087200B25957 /* DataUsersTableViewCell.xib */; };
+		725E6BFB278932F400B25957 /* MapPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E6BF9278932F400B25957 /* MapPhotoViewController.swift */; };
+		725E6BFC278932F400B25957 /* MapPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725E6BFA278932F400B25957 /* MapPhotoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		72376FED2787831000E1866F /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		725ACB07278807220068BDCF /* RegisterRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRealm.swift; sourceTree = "<group>"; };
 		725ACB0B2788089D0068BDCF /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
+		725E6BF0278906E900B25957 /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
+		725E6BF32789087200B25957 /* DataUsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUsersTableViewCell.swift; sourceTree = "<group>"; };
+		725E6BF42789087200B25957 /* DataUsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataUsersTableViewCell.xib; sourceTree = "<group>"; };
+		725E6BF9278932F400B25957 /* MapPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoViewController.swift; sourceTree = "<group>"; };
+		725E6BFA278932F400B25957 /* MapPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPhotoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,7 @@
 		72376FD02787814F00E1866F /* PruebaTecnologiza */ = {
 			isa = PBXGroup;
 			children = (
+				725E6BF7278932B900B25957 /* Map */,
 				725ACB062788070B0068BDCF /* Models */,
 				72376FEB278782E900E1866F /* RegisterUser */,
 				72376FE52787819600E1866F /* UserList */,
@@ -83,6 +94,7 @@
 		72376FE52787819600E1866F /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				725E6BEF278906C800B25957 /* Presenter */,
 				72376FE6278781B900E1866F /* View */,
 			);
 			path = UserList;
@@ -91,6 +103,7 @@
 		72376FE6278781B900E1866F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				725E6BF22789085A00B25957 /* Cells */,
 				72376FE7278781D100E1866F /* ListUserViewController.swift */,
 				72376FE8278781D100E1866F /* ListUserViewController.xib */,
 			);
@@ -129,6 +142,40 @@
 				725ACB0B2788089D0068BDCF /* RegisterPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		725E6BEF278906C800B25957 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				725E6BF0278906E900B25957 /* UserListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		725E6BF22789085A00B25957 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				725E6BF32789087200B25957 /* DataUsersTableViewCell.swift */,
+				725E6BF42789087200B25957 /* DataUsersTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		725E6BF7278932B900B25957 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				725E6BF8278932CC00B25957 /* View */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		725E6BF8278932CC00B25957 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				725E6BF9278932F400B25957 /* MapPhotoViewController.swift */,
+				725E6BFA278932F400B25957 /* MapPhotoViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +244,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				72376FDE2787815000E1866F /* LaunchScreen.storyboard in Resources */,
+				725E6BF62789087200B25957 /* DataUsersTableViewCell.xib in Resources */,
 				72376FDB2787815000E1866F /* Assets.xcassets in Resources */,
 				72376FEA278781D100E1866F /* ListUserViewController.xib in Resources */,
+				725E6BFC278932F400B25957 /* MapPhotoViewController.xib in Resources */,
 				72376FEF2787831000E1866F /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,10 +260,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				72376FE9278781D100E1866F /* ListUserViewController.swift in Sources */,
+				725E6BFB278932F400B25957 /* MapPhotoViewController.swift in Sources */,
 				725ACB0C2788089D0068BDCF /* RegisterPresenter.swift in Sources */,
+				725E6BF1278906E900B25957 /* UserListPresenter.swift in Sources */,
 				72376FD22787814F00E1866F /* AppDelegate.swift in Sources */,
 				72376FD42787814F00E1866F /* SceneDelegate.swift in Sources */,
 				72376FEE2787831000E1866F /* RegisterViewController.swift in Sources */,
+				725E6BF52789087200B25957 /* DataUsersTableViewCell.swift in Sources */,
 				725ACB08278807220068BDCF /* RegisterRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
