@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController {
     weak var delegate: RegisterViewControllerDelegate?
     let managerLocation = CLLocationManager()
     var locationUser: CLLocation?
+    let validityType: String.ValidateType = .email
     
     var nameUser = ""
     var lastNameUser = ""
@@ -49,6 +50,26 @@ class RegisterViewController: UIViewController {
         managerLocation.startUpdatingLocation()
     }
     
+    func handleTextChange(textValid: UITextField) -> Bool {
+        guard let text = textValid.text else { return false }
+        if text.isValida(validityType) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func validateTextFields() -> Bool{
+        var validation = false
+        guard let safeTextCell = cellPhone.text else { return false }
+        if name.text == "" ||  lastName.text == "" || safeTextCell.count < 10 || handleTextChange(textValid: email) || imageUser.image == UIImage(named: "add-friend"){
+            validation = false
+        } else {
+            validation = true
+        }
+        return validation
+    }
+    
     func configureUI(){
         imageUser.layer.cornerRadius = 7
         imageUser.clipsToBounds = true
@@ -57,6 +78,7 @@ class RegisterViewController: UIViewController {
         name.delegate = self
         lastName.delegate = self
         cellPhone.delegate = self
+        cellPhone.keyboardType = .numberPad
         email.delegate = self
     }
     
@@ -79,7 +101,7 @@ class RegisterViewController: UIViewController {
         cellPhone.text = cellPhoneUser
         email.text = emailUser
         coordinates.text = coordinatesUser.description
-        imageUser.image = nameUser == "" ? UIImage(systemName: "person.fill") : imageSelected
+        imageUser.image = nameUser == "" ? UIImage(named: "add-friend") : imageSelected
     }
     
     @objc func goToMap(){
@@ -114,16 +136,28 @@ class RegisterViewController: UIViewController {
         imageSelected = imageUserData
     }
     
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Datos incorretos", message: "Favor de llenar todos los datos correctamente", preferredStyle: .alert)
+        let AlertAction = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(AlertAction)
+        present(alert, animated: true)
+    }
+    
     @IBAction func onClickRegisterUser(_ sender: Any) {
-        presenter.saveUser(name: name.text ?? "",
-                           lastName: lastName.text ?? "",
-                           cellPhone: cellPhone.text ?? "",
-                           email: email.text ?? "",
-                           image: dataImage ?? Data(),
-                           latitude: latitudeUser ?? .zero,
-                           longitude: longitudeUser ?? .zero)
-        delegate?.reloadData()
-        navigationController?.popViewController(animated: true)
+        
+        if validateTextFields() {
+            presenter.saveUser(name: name.text ?? "",
+                               lastName: lastName.text ?? "",
+                               cellPhone: cellPhone.text ?? "",
+                               email: email.text ?? "",
+                               image: dataImage ?? Data(),
+                               latitude: latitudeUser ?? .zero,
+                               longitude: longitudeUser ?? .zero)
+            delegate?.reloadData()
+            navigationController?.popViewController(animated: true)
+        } else {
+            showErrorAlert()
+        }
     }
 }
 

@@ -24,6 +24,7 @@
 		725E6BF62789087200B25957 /* DataUsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725E6BF42789087200B25957 /* DataUsersTableViewCell.xib */; };
 		725E6BFB278932F400B25957 /* MapPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E6BF9278932F400B25957 /* MapPhotoViewController.swift */; };
 		725E6BFC278932F400B25957 /* MapPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725E6BFA278932F400B25957 /* MapPhotoViewController.xib */; };
+		72AA307A278957C000C97130 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA3079278957C000C97130 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		725E6BF42789087200B25957 /* DataUsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataUsersTableViewCell.xib; sourceTree = "<group>"; };
 		725E6BF9278932F400B25957 /* MapPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoViewController.swift; sourceTree = "<group>"; };
 		725E6BFA278932F400B25957 /* MapPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPhotoViewController.xib; sourceTree = "<group>"; };
+		72AA3079278957C000C97130 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		72376FD02787814F00E1866F /* PruebaTecnologiza */ = {
 			isa = PBXGroup;
 			children = (
+				72AA3077278957A500C97130 /* Utils */,
 				725E6BF7278932B900B25957 /* Map */,
 				725ACB062788070B0068BDCF /* Models */,
 				72376FEB278782E900E1866F /* RegisterUser */,
@@ -178,6 +181,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		72AA3077278957A500C97130 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				72AA3078278957AC00C97130 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		72AA3078278957AC00C97130 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				72AA3079278957C000C97130 /* StringExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,6 +280,7 @@
 			files = (
 				72376FE9278781D100E1866F /* ListUserViewController.swift in Sources */,
 				725E6BFB278932F400B25957 /* MapPhotoViewController.swift in Sources */,
+				72AA307A278957C000C97130 /* StringExtension.swift in Sources */,
 				725ACB0C2788089D0068BDCF /* RegisterPresenter.swift in Sources */,
 				725E6BF1278906E900B25957 /* UserListPresenter.swift in Sources */,
 				72376FD22787814F00E1866F /* AppDelegate.swift in Sources */,

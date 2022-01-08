@@ -27,8 +27,7 @@ class ListUserViewController: UIViewController {
     
     func prepareNavBar(){
         self.navigationController?.navigationBar.barStyle = .default
-        navigationItem.title = "Usuarios"
-        self.navigationController?.navigationBar.isTranslucent = true
+        navigationItem.title = "Registros"
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToAddRegister))
     }
