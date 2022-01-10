@@ -136,15 +136,14 @@ class RegisterViewController: UIViewController {
         imageSelected = imageUserData
     }
     
-    func showErrorAlert(){
-        let alert = UIAlertController(title: "Datos incorretos", message: "Favor de llenar todos los datos correctamente", preferredStyle: .alert)
+    func showErrorAlert(title: String, description: String){
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
         let AlertAction = UIAlertAction(title: "Ok", style: .cancel)
         alert.addAction(AlertAction)
         present(alert, animated: true)
     }
     
     @IBAction func onClickRegisterUser(_ sender: Any) {
-        
         if validateTextFields() {
             presenter.saveUser(name: name.text ?? "",
                                lastName: lastName.text ?? "",
@@ -156,7 +155,7 @@ class RegisterViewController: UIViewController {
             delegate?.reloadData()
             navigationController?.popViewController(animated: true)
         } else {
-            showErrorAlert()
+            showErrorAlert(title: "Datos incorrectos", description: "Favor de llenar todos los datos correctamente")
         }
     }
 }
@@ -169,6 +168,10 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        if picker.cameraDevice == .rear {
+            showErrorAlert(title: "¡Ups!", description: "Favor de tomar la foto con la cámara frontal")
+            return
+        }
         self.getLocationPhoto()
         self.imageSelected = image
         dataImage = image.pngData()
@@ -177,6 +180,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 }
 
 extension RegisterViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
